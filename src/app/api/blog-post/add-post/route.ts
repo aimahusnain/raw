@@ -1,10 +1,10 @@
-import prisma from "@/database";
+import {db} from "@/database";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
     const extractPostData = await request.json();
-    const newlyCreatedPost = await prisma.post.create({
+    const newlyCreatedPost = await db.post.create({
       data: extractPostData,
     });
 

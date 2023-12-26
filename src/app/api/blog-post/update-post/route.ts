@@ -1,11 +1,11 @@
-import prisma from "@/database";
+import {db} from "@/database";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(request: NextRequest) {
   try {
     const extractData = await request.json();
 
-    const updatedBlogPost = await prisma.post.update({
+    const updatedBlogPost = await db.post.update({
       where: {
         id: Number(extractData.id),
       },
