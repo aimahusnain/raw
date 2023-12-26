@@ -5,7 +5,7 @@ export async function PUT(request: NextRequest) {
   try {
     const extractData = await request.json();
 
-    const updatedBlogPost = await db.post.update({
+    const updatedBlogPost = await prisma.post.update({
       where: {
         id: Number(extractData.id),
       },

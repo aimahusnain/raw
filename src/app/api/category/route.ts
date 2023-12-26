@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const extractCategoryID = searchParams.get("categoryID");
 
-    const getBlogPostListBasedOnCurrentCategoryID = await db.post.findMany({
+    const getBlogPostListBasedOnCurrentCategoryID = await prisma.post.findMany({
       where: {
         category: extractCategoryID || "",
       },

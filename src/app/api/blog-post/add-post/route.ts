@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   try {
     const extractPostData = await request.json();
-    const newlyCreatedPost = await db.post.create({
+    const newlyCreatedPost = await prisma.post.create({
       data: extractPostData,
     });
 

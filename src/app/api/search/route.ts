@@ -6,7 +6,7 @@ export async function GET(req: NextRequest) {
     const url = new URL(req.url);
     const extractQuery = url.searchParams.get("query");
 
-    const searchPostList = await db.post.findMany({
+    const searchPostList = await prisma.post.findMany({
       where: {
         OR: [
           {

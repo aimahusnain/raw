@@ -6,7 +6,7 @@ export async function DELETE(req: NextRequest) {
     const url = new URL(req.url);
     const extractIdOfBlogItemToBeDeleted = url.searchParams.get("id");
 
-    const deletedBlogPost = await db.post.delete({
+    const deletedBlogPost = await prisma.post.delete({
       where: {
         id: Number(extractIdOfBlogItemToBeDeleted),
       },
